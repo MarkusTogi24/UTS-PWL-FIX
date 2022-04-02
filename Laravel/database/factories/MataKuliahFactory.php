@@ -19,8 +19,8 @@ class MataKuliahFactory extends Factory
     public function definition()
     {
         return [
-            'kode' => ucwords(Str::random(5)),
-            'nama' => $this->faker->name(),
+            'kode' => strtoupper(Str::random(4)),
+            'nama' => strtoupper($this->faker->words(3,true)),
             'semester_id' => rand(1,2),
             'isProdi' => rand(0,1),
             'sks' => rand(2,4)

@@ -18,7 +18,7 @@ class MahasiswaFactory extends Factory
     public function definition()
     {
         return [
-            'nim' => ucwords(Str::random(10)),
+            'nim' => $this->faker->randomNumber(9, true),
             'nama' => $this->faker->name(),
         ];
     }

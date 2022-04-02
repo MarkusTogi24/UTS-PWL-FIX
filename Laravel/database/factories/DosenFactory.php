@@ -18,7 +18,7 @@ class DosenFactory extends Factory
     public function definition()
     {
         return [
-            'nip' => ucwords(Str::random(10)),
+            'nip' => $this->faker->randomNumber(8, true),
             'nama' => $this->faker->name(),
         ];
     }

@@ -30,8 +30,8 @@ class Kelas extends Model
         return $this->belongsToMany(Mahasiswa::class, 'kelas_mahasiswa', 'kelas_id', 'mahasiswa_id');
     }
 
-    public function dosen(): HasOne
+    public function dosen(): BelongsTo
     {
-        return $this->hasOne(Dosen::class);
+        return $this->belongsTo(Dosen::class);
     }
 }

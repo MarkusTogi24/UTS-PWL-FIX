@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             ->each(function ($semester) {
                 MataKuliah::factory()
                     ->for($semester)
-                    ->count(rand(1, 20))
+                    ->count(20)
                     ->create()
                     ->each(function ($matakuliah){
                         Kelas::factory()

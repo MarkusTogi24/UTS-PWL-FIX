@@ -34,7 +34,7 @@
             </div>
             <div class="w-full flex border-b">
                 <div class="w-1/5 p-1 flex justify-between">
-                    <h1 class="block w-fit">Kode Mata Kuliah</h1>
+                    <h1 class="block w-fit">Bobot SKS</h1>
                     <h1 class="block w-fit">:</h1>
                 </div>
                 <h1 class="block p-1 ml-2">{{ $kelas->matakuliah->sks }}</h1>

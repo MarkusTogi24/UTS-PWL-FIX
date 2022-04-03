@@ -46,7 +46,6 @@ class KelasController extends Controller
     
     public function get_matakuliah($selected_semester = 1, $selected_limit = 10, $selected_page = 1, $isProdi = 1)
     {   
-        // $semesters = Semester::query()->get();
         $matakuliah = MataKuliah::query()
             ->where('semester_id', $selected_semester)
             ->where('isProdi', $isProdi)
@@ -59,6 +58,24 @@ class KelasController extends Controller
             ->whereIn('mata_kuliah_id', $matakuliah)
             ->paginate($selected_limit,['*'],'page',$selected_page);
             
+        return Response::json($results);
+    }
+
+    public function cari_matakuliah($keyword, $selected_semester = 1, $isProdi = 1){
+
+        $matakuliah = MataKuliah::query()
+            ->where('semester_id', $selected_semester)
+            ->where('isProdi', $isProdi)
+            ->where('nama', 'LIKE', '%'.$keyword.'%')
+            ->get()
+            ->pluck('id')
+            ->toArray();
+
+        $results = Kelas::query()
+            ->with('matakuliah')
+            ->whereIn('mata_kuliah_id', $matakuliah)
+            ->get();
+
         return Response::json($results);
     }
 }
